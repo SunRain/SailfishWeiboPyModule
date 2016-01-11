@@ -21,7 +21,7 @@ BuildRequires:   gcc
 BuildRequires:	 libcurl-devel
 BuildRequires:   openssl-devel
 Requires:        openssl-devel
-Requires:		     libcurl-devel
+Requires:        libcurl-devel
 
 
 %description

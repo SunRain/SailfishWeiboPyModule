@@ -5,9 +5,9 @@ import harbour.sailfish_sinaweibo.sunrain 1.0
 
 Page {
     id:loginComponent
-    property string API_KEY
-    property string API_SECRET
-    property string REDIRECT_URI
+    property string API_KEY:"211160679"
+    property string API_SECRET:"1e6e33db08f9192306c4afa0a61ad56c"
+    property string REDIRECT_URI:"http://oauth.weico.cc"
     signal loginSucceed()
     signal loginFailed(string fail)
     SilicaFlickable {
@@ -120,8 +120,8 @@ Page {
             errorLabel.visible = false;
             busyIndicator.running = false;
             loginComponent.loginSucceed();
-            tokenProvide.token = access_token，string
-            tokenProvide.uid = uid
+            tokenProvide.token = access_token;
+            tokenProvide.uid = uid;
           }else{
             busyIndicator.running = false;
             errorLabel.visible = true;

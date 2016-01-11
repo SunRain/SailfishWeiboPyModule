@@ -1,6 +1,5 @@
 import rpweibo
 import pyotherside
-import urllib.request
 import json
 import urllib.parse
 import urllib.request

@@ -87,7 +87,7 @@ Page {
                 onClicked: {
                     errorLabel.visible = false;
                     busyIndicator.running = true;
-                    py.login(API_KEY,API_SECRET,REDIRECT_URI,userName.text,password.text)
+                    py.login(api_key,api_secret,redirect_uri,userName.text,password.text)
 
                 }
             }
@@ -137,7 +137,7 @@ Page {
             setHandler('pyhandler', pyhandler);
         }
         function login(api_key,api_secret,redirect_uri,username,password){
-            call('main.login',[API_KEY,API_SECRET,REDIRECT_URI,username,password],function(result){
+            call('main.login',[api_key,api_secret,redirect_uri,username,password],function(result){
                 //return result
             })
         }

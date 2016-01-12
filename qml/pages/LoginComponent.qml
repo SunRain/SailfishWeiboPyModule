@@ -5,9 +5,9 @@ import harbour.sailfish_sinaweibo.sunrain 1.0
 
 Page {
     id:loginComponent
-    property string API_KEY:"211160679"
-    property string API_SECRET:"1e6e33db08f9192306c4afa0a61ad56c"
-    property string REDIRECT_URI:"http://oauth.weico.cc"
+    property string api_key:"211160679"
+    property string api_secret:"1e6e33db08f9192306c4afa0a61ad56c"
+    property string redirect_uri:"http://oauth.weico.cc"
     signal loginSucceed()
     signal loginFailed(string fail)
     SilicaFlickable {
@@ -111,8 +111,8 @@ Page {
     }
 
     Python{
-        id:python
-        signal pyhandler(string access_token，string uid)
+        id:py
+        signal pyhandler(string access_token,string uid)
 
         onPyhandler:{
           //登录成功
@@ -136,7 +136,7 @@ Page {
             });
             setHandler('pyhandler', pyhandler);
         }
-        function login(API_KEY,API_SECRET,REDIRECT_URI,username,password){
+        function login(api_key,api_secret,redirect_uri,username,password){
             call('main.login',[API_KEY,API_SECRET,REDIRECT_URI,username,password],function(result){
                 //return result
             })

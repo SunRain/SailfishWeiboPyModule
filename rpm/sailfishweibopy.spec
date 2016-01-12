@@ -49,7 +49,7 @@ export PYCURL_SSL_LIBRARY=openssl
 %install
 rm -rf %{buildroot}
 cd pycurl-7.19.5.3 && python3 setup.py install --root $RPM_BUILD_ROOT
-mkdir -p %{buildroot}%{sailfishweibo}
+mkdir -p %{buildroot}%{sailfishweibo}/qml/
 cp -r $RPM_BUILD_DIR/qml/* %{buildroot}%{sailfishweibo}/qml/
 # >> install post
 # << install post

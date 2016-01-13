@@ -9,7 +9,7 @@ Name:       sailfishweibopy
 # << macros
 %define sailfishweibo /usr/share/harbour-sailfish_sinaweibo
 Summary:    login module for SailfishWeibo
-Version:    0.1
+Version:    0.2
 Release:    1
 Group:      Python
 License:    LGPL

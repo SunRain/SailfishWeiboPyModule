@@ -47,8 +47,8 @@ This module provides Python bindings for the cURL library.
 %install
 rm -rf %{buildroot}
 export PYCURL_SSL_LIBRARY=openssl
-python3 -m pip install pycurl
-#cd pycurl-7.19.5.3 && python3 setup.py --with-ssl install --curl-config=/usr/bin/curl-config --root $RPM_BUILD_ROOT
+#python3 -m pip install pycurl
+cd pycurl-7.19.5.3 && python3 setup.py --with-ssl install --root $RPM_BUILD_ROOT
 mkdir -p %{buildroot}%{sailfishweibo}/qml/
 cp -r $RPM_BUILD_DIR/qml/* %{buildroot}%{sailfishweibo}/qml/
 # >> install post

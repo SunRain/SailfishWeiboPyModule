@@ -10,7 +10,7 @@ Name:       sailfishweibopy
 %define sailfishweibo /usr/share/harbour-sailfish_sinaweibo
 %define pycurl  /usr/share/doc/pycurl
 Summary:    login module for SailfishWeibo
-Version:    0.1
+Version:    0.2
 Release:    1
 Group:      Python
 License:    LGPL
@@ -61,7 +61,9 @@ cp -r $RPM_BUILD_DIR/qml/* %{buildroot}%{sailfishweibo}/qml/
 %preun
 # >> preun
 # << preun
-
+%postun
+rm -rf /usr/lib/python3.4/site-packages/curl
+rm -rf /usr/lib/python3.4/site-packages/pycurl*
 %files
 %defattr(-,root,root,-)
 /usr/lib/python3.4/site-packages/*

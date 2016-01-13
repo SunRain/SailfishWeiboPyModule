@@ -20,8 +20,8 @@ BuildRequires:   python3-devel
 BuildRequires:   gcc
 BuildRequires:	 libcurl-devel
 BuildRequires:   openssl-devel
-Requires:        openssl-devel
-Requires:        libcurl-devel
+Requires:        openssl-libs
+Requires:        libcurl
 
 
 %description

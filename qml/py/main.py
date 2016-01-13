@@ -13,8 +13,9 @@ def login(API_KEY,API_SECRET,REDIRECT_URI,username,password):
         access_token,uid = authenticator.auth(example_app)
         print(access_token,uid)
         pyotherside.send("pyhandler",access_token,uid)
-    except rpweibo.AuthorizeFailed:
+    except rpweibo.AuthorizeFailed as e:
         print("Invalid username or password!")
-        pyotherside.send("pyhandler","Error","Invalid username or password!")
-
-
+        pyotherside.send("pyhandler","Error",e)
+    except rpweibo.APIError as e:
+        print("Api Error")
+        pyotherside.send("pyhandler","Error",e)

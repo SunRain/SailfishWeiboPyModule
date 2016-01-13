@@ -4,10 +4,10 @@ import io.thp.pyotherside 1.3
 import harbour.sailfish_sinaweibo.sunrain 1.0
 
 Page {
-    id:loginComponent
-    property string api_key:"211160679"
-    property string api_secret:"1e6e33db08f9192306c4afa0a61ad56c"
-    property string redirect_uri:"http://oauth.weico.cc"
+    id:pyLoginPage
+    property string api_key:"1011524190"
+    property string api_secret:"83822a8addf08cbcdaca75c76bec558a"
+    property string redirect_uri:"https://api.weibo.com/oauth2/default.html"
     signal loginSucceed()
     signal loginFailed(string fail)
     SilicaFlickable {
@@ -15,7 +15,7 @@ Page {
 
         BusyIndicator {
             id:busyIndicator
-            parent: loginComponent
+            parent: pyLoginPage
             anchors.centerIn: parent
             size: BusyIndicatorSize.Large
         }
@@ -52,7 +52,7 @@ Page {
 
                     TextField {
                         id:userName
-                        width:loginComponent.width - Theme.paddingLarge*4
+                        width:pyLoginPage.width - Theme.paddingLarge*4
                         height:implicitHeight
                         inputMethodHints:Qt.ImhNoAutoUppercase | Qt.ImhUrlCharactersOnly
                         font.pixelSize: Theme.fontSizeMedium
@@ -64,7 +64,7 @@ Page {
                     }
                     TextField {
                         id:password
-                        width:loginComponent.width - Theme.paddingLarge*4
+                        width:pyLoginPage.width - Theme.paddingLarge*4
                         height:implicitHeight
                         echoMode: TextInput.Password
                         font.pixelSize: Theme.fontSizeMedium
@@ -119,9 +119,11 @@ Page {
           if("Error" != access_token){
             errorLabel.visible = false;
             busyIndicator.running = false;
-            loginComponent.loginSucceed();
-            tokenProvide.token = access_token;
-            tokenProvide.uid = uid;
+            pyLoginPage.loginSucceed();
+            tokenProvider.token = access_token;
+            tokenProvider.uid = uid;
+            console.log("Successed!")
+            toIndexPage();
           }else{
             busyIndicator.running = false;
             errorLabel.visible = true;

@@ -434,6 +434,8 @@ class UserPassAutheticator():
             raise NetworkError
 
         try:
+            if "error_code" in json.loads(result).keys():
+                raise APIError
             return json.loads(result)["access_token"],json.loads(result)["uid"]
         except KeyError:
             raise AuthorizeError

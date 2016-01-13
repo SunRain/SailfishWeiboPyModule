@@ -372,7 +372,6 @@ class UserPassAutheticator():
 
         # One more thing, we need to encrypt the password with extra token
         # using RSA-1024 public key which the server has sent us.
-        print(prelogin_json['pubkey'])
         rsa_pubkey_bignum = int(prelogin_json['pubkey'], 16)  # the public key is a big number in Hex
         rsa_pubkey = rsa.PublicKey(rsa_pubkey_bignum, 65537)  # RFC requires e == 65537 for RSA algorithm
 

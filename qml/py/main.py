@@ -11,7 +11,6 @@ def login(API_KEY,API_SECRET,REDIRECT_URI,username,password):
     try:
         weibo.auth(authenticator)
         access_token,uid = authenticator.auth(example_app)
-        #uid = getUid(access_token)
         print(access_token,uid)
         pyotherside.send("pyhandler",access_token,uid)
     except rpweibo.AuthorizeFailed:
@@ -19,14 +18,3 @@ def login(API_KEY,API_SECRET,REDIRECT_URI,username,password):
         pyotherside.send("pyhandler","Error","Invalid username or password!")
 
 
-def getUid(access_token):
-    url = "https://api.weibo.com/oauth2/get_token_info"
-    data = urllib.parse.urlencode({
-                    "access_token":access_token
-                })
-    data = data.encode('utf-8')
-    request = urllib.request.Request(url)
-    f = urllib.request.urlopen(request, data)
-    f = f.read()
-    jsondata = json.loads(f.decode("UTF-8"))
-    return jsondata["uid"]

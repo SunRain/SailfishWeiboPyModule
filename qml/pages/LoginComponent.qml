@@ -120,7 +120,7 @@ Page {
             errorLabel.visible = false;
             busyIndicator.running = false;
             pyLoginPage.loginSucceed();
-            tokenProvider.token = access_token;
+            tokenProvider.accessToken = access_token;
             tokenProvider.uid = uid;
             console.log("Successed!")
             toIndexPage();

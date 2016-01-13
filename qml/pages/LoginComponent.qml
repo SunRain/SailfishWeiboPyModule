@@ -130,6 +130,11 @@ Page {
           }
 
         }
+        onError: {
+          busyIndicator.running = false;
+          errorLabel.visible = true;
+          errorLabel.text = traceback;
+        }
         Component.onCompleted: {
             addImportPath(Qt.resolvedUrl('../py'));
             py.importModule('main', function () {

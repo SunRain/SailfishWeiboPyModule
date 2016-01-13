@@ -10,8 +10,8 @@ def login(API_KEY,API_SECRET,REDIRECT_URI,username,password):
     authenticator = rpweibo.UserPassAutheticator(username, password)
     try:
         weibo.auth(authenticator)
-        access_token = authenticator.auth(example_app)
-        uid = getUid(access_token)
+        access_token,uid = authenticator.auth(example_app)
+        #uid = getUid(access_token)
         print(access_token,uid)
         pyotherside.send("pyhandler",access_token,uid)
     except rpweibo.AuthorizeFailed:

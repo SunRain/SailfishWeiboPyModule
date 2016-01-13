@@ -75,7 +75,7 @@ Page {
                             submitButton.focus = true
                             errorLabel.visible = false;
                             busyIndicator.running = true;
-                            py.login(API_KEY,API_SECRET,REDIRECT_URI,userName.text,password.text)
+                            py.login(api_key,api_secret,redirect_uri,userName.text,password.text)
                         }
                     }
                 }
@@ -119,11 +119,11 @@ Page {
           if("Error" != access_token){
             errorLabel.visible = false;
             busyIndicator.running = false;
-            pyLoginPage.loginSucceed();
-            tokenProvider.token = access_token;
+            tokenProvider.accessToken = access_token;
             tokenProvider.uid = uid;
             console.log("Successed!")
-            toIndexPage();
+            pyLoginPage.loginSucceed();
+            //toIndexPage();
           }else{
             busyIndicator.running = false;
             errorLabel.visible = true;

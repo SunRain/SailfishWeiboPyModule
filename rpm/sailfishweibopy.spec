@@ -8,7 +8,6 @@ Name:       sailfishweibopy
 %{!?python_sitelib: %define python_sitelib %(%{__python} -c "from distutils.sysconfig import get_python_lib; print get_python_lib()")}
 # << macros
 %define sailfishweibo /usr/share/harbour-sailfish_sinaweibo
-%define pycurl  /usr/share/doc/pycurl
 Summary:    login module for SailfishWeibo
 Version:    0.1
 Release:    1
@@ -17,7 +16,7 @@ License:    LGPL
 URL:        https://github.com/SunRain/SailfishWeibo
 Source0:    %{name}-%{version}.tar.bz2
 BuildRequires:   python3-devel
-BuildRequires:   gcc
+#BuildRequires:   gcc
 BuildRequires:	 libcurl-devel
 BuildRequires:   openssl-devel
 Requires:        openssl-devel
@@ -48,7 +47,8 @@ This module provides Python bindings for the cURL library.
 rm -rf %{buildroot}
 export PYCURL_SSL_LIBRARY=openssl
 #python3 -m pip install pycurl
-cd pycurl-7.19.5.3 && python3 setup.py --with-ssl install --root $RPM_BUILD_ROOT
+mkdir -p %{buildroot}/usr/lib/python3.4/site-packages/
+cp -rf $RPM_BUILD_DIR/i486/* %{buildroot}/usr/lib/python3.4/site-packages/
 mkdir -p %{buildroot}%{sailfishweibo}/qml/
 cp -r $RPM_BUILD_DIR/qml/* %{buildroot}%{sailfishweibo}/qml/
 # >> install post
@@ -65,7 +65,6 @@ cp -r $RPM_BUILD_DIR/qml/* %{buildroot}%{sailfishweibo}/qml/
 %files
 %defattr(-,root,root,-)
 /usr/lib/python3.4/site-packages/*
-%doc %{pycurl}/*
 %{sailfishweibo}
 # >> files
 # << files

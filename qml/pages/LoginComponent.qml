@@ -10,6 +10,7 @@ Page {
     property string redirect_uri:"https://api.weibo.com/oauth2/default.html"
     signal loginSucceed()
     signal loginFailed(string fail)
+    
     SilicaFlickable {
         anchors.fill: parent
 
@@ -18,6 +19,30 @@ Page {
             parent: pyLoginPage
             anchors.centerIn: parent
             size: BusyIndicatorSize.Large
+        }
+        PullDownMenu {
+            id: pdMenu
+            MenuItem {
+                id: manualBtn
+                text: qsTr("Manual Autheticator")
+                onClicked: {
+                    //pageStack.replace("qrc:/pages/LoginPage.qml");
+                    toLoginPage();
+                }
+            }
+            MenuItem {
+                text: qsTr("User Password Autheticator")
+                onClicked: {
+                    pageStack.replace(Qt.resolvedUrl("file:///usr/share/harbour-sailfish_sinaweibo/qml/pages/LoginComponent.qml"));
+                }
+            }
+            MenuItem {
+                text: qsTr("Help")
+                onClicked: {
+                    //pageStack.replace("qrc:/pages/LoginPage.qml");
+                    toLoginPage();
+                }
+            }
         }
 
         Column {
@@ -31,7 +56,7 @@ Page {
             spacing: Theme.paddingMedium
 
             PageHeader {
-                title: qsTr("Login")
+                title: qsTr("User Password Autheticator")
             }
 
             Rectangle {
@@ -122,8 +147,8 @@ Page {
             tokenProvider.accessToken = access_token;
             tokenProvider.uid = uid;
             console.log("Successed!")
-            pyLoginPage.loginSucceed();
-            //toIndexPage();
+            //pyLoginPage.loginSucceed();
+            toIndexPage();
           }else{
             busyIndicator.running = false;
             errorLabel.visible = true;

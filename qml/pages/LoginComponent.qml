@@ -10,7 +10,7 @@ Page {
     property string redirect_uri:"https://api.weibo.com/oauth2/default.html"
     signal loginSucceed()
     signal loginFailed(string fail)
-    
+
     SilicaFlickable {
         anchors.fill: parent
 
@@ -109,6 +109,7 @@ Page {
                 id:submitButton
                 anchors.horizontalCenter: parent.horizontalCenter
                 text: qsTr("Login")
+                enabled:userName.text && password.text
                 onClicked: {
                     errorLabel.visible = false;
                     busyIndicator.running = true;

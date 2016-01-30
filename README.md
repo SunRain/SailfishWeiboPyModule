@@ -17,17 +17,18 @@ Here's how you configure Qt Creator to build the project in windows:
 1. Open the .pro file in Qt Creator
 
 2. Modify the project build settings:
+
 	Build Steps:
 
 		add a new one:
 
 		Custom Process Step
 
-				  Command: $full_path_to/build-win-$target.cmd
-							note: (for i486, $target is i486, for arm, $target is armv7hl)
+				Command: $full_path_to/build-win-$target.cmd
+							note: for i486, $target is i486, for arm, $target is armv7hl
 								  You may need to modify the cmd file to fit your environment
 				Arguments: 
-		Working directory: %{buildDir}
+		        Working directory: %{buildDir}
 		
 		move this custom process step up, the build steps will be like this:
 		1. start sdk

@@ -19,7 +19,7 @@ Name:       sailfishweibopy
 
 Summary:    login module for SailfishWeibo
 Version:    0.2
-Release:    1
+Release:    2
 Group:      Python
 License:    LGPL
 URL:        https://github.com/SunRain/SailfishWeibo
@@ -79,3 +79,7 @@ rm -rf /usr/lib/python3.4/site-packages/pycurl*
 %{sailfishweibo}
 # >> files
 # << files
+
+%changelog
+* Mon Jan 18 2016 BirdZhang <0312birdzhang@gmail.com> 0.2-2
+- 更改为sailfish客户端key

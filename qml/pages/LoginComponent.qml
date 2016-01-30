@@ -5,12 +5,15 @@ import harbour.sailfish_sinaweibo.sunrain 1.0
 
 Page {
     id:pyLoginPage
-    property string api_key:"1011524190"
-    property string api_secret:"83822a8addf08cbcdaca75c76bec558a"
+    //property string api_key:"1011524190"
+    //property string api_secret:"83822a8addf08cbcdaca75c76bec558a"
+    //property string redirect_uri:"https://api.weibo.com/oauth2/default.html"
+    property string api_key:"2738147420"
+    property string api_secret:"179282ed52d7d5c21eb4e4047f66ca9b"
     property string redirect_uri:"https://api.weibo.com/oauth2/default.html"
     signal loginSucceed()
     signal loginFailed(string fail)
-    
+
     SilicaFlickable {
         anchors.fill: parent
 
@@ -109,6 +112,7 @@ Page {
                 id:submitButton
                 anchors.horizontalCenter: parent.horizontalCenter
                 text: qsTr("Login")
+                enabled:userName.text && password.text
                 onClicked: {
                     errorLabel.visible = false;
                     busyIndicator.running = true;
